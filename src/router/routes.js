@@ -9,7 +9,7 @@ const getRoutes = (state) => {
     return [
         {
             path: "*",
-            element: <NotFoundPage/>,
+            element: state || AuthenticationService.getToken() ? <Navigate to="/calls" replace /> : <LoginPage />,
         },
         {
             path: "/login",
